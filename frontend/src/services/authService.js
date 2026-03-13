@@ -2,9 +2,9 @@ import axios from 'axios';
 
 // CHANGE THIS: Localhost ko hatakar apne deployed backend ka link dalo
 // Agar backend deploy nahi kiya hai, toh temporary base URL rakho
-const API_URL = process.env.NODE_ENV === 'production' 
-    ? 'https://your-backend-api-link.com/api/auth' 
-    : 'http://localhost:5000/api/auth';
+const API_URL = window.location.hostname === 'localhost' 
+    ? 'http://localhost:5000/api/auth' 
+    : 'https://tera-backend-render-link.onrender.com/api/auth';
 
 export const register = async (userData) => {
     const response = await axios.post(`${API_URL}/register`, userData);
